@@ -1,4 +1,4 @@
-package `for`
+package backjoon.`for`
 
 import java.io.BufferedReader
 import java.io.BufferedWriter
@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter
 
 /**
  * 문제
- * 자연수 N이 주어졌을 때, 1부터 N까지 한 줄에 하나씩 출력하는 프로그램을 작성하시오.
+ * 자연수 N이 주어졌을 때, N부터 1까지 한 줄에 하나씩 출력하는 프로그램을 작성하시오.
  *
  * 입력
  * 첫째 줄에 100,000보다 작거나 같은 자연수 N이 주어진다.
@@ -22,11 +22,11 @@ import java.io.OutputStreamWriter
  * 5
  *
  * 예제 출력
- * 1
- * 2
- * 3
- * 4
  * 5
+ * 4
+ * 3
+ * 2
+ * 1
  */
 
 fun main(args: Array<String>) {
@@ -35,7 +35,7 @@ fun main(args: Array<String>) {
 
     val t:Int = br.readLine().toInt()
 
-    for(i in 1..t) {
+    for(i in t downTo 1 step 1 ) {
         bw.write("${i}")
         bw.newLine()
     }

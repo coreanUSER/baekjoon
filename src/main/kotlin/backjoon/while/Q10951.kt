@@ -1,4 +1,4 @@
-package `while`
+package backjoon.`while`
 
 import java.io.*
 import java.lang.Exception

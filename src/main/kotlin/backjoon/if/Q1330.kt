@@ -1,4 +1,4 @@
-package `if`
+package backjoon.`if`
 
 import java.io.BufferedReader
 import java.io.InputStreamReader

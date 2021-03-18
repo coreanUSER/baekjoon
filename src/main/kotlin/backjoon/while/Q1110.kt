@@ -1,9 +1,10 @@
-package `while`
+package backjoon.`while`
 
 import java.io.BufferedReader
 import java.io.BufferedWriter
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
+import java.util.*
 
 /**
  * 문제
@@ -37,25 +38,46 @@ import java.io.OutputStreamWriter
  * 1
  */
 
-fun main() = with(BufferedReader(InputStreamReader(System.`in`))) {
+fun main(args: Array<String>) {
     val br = BufferedReader(InputStreamReader(System.`in`))
     val bw = BufferedWriter(OutputStreamWriter(System.out))
 
-    val a:Int = br.readLine().toInt()
-    var r:Int = 0
-    var n:Int = 0
+    val n:Int = br.readLine().toInt()
 
-    while(true) {
+    var temp: List<Int> = if (n < 10) listOf(0, n) else listOf((n/10), (n%10))
+    var count: Int = 0
 
+    while (true) {
+        count++
+        var result = temp[0] + temp[1]
 
-
-        if(a == r) {
+        if((temp[1] * 10 + (result%10)) == n) {
             break
         }
 
-        n += 1
+        temp = listOf(temp[1], (result%10))
     }
 
-    bw.write("${n}")
+    bw.write(count.toString())
     bw.flush()
 }
+
+//fun main(args: Array<String>) {
+//    val n: Int = Scanner(System.`in`).nextInt()
+//
+//    var temp: List<Int> = if (n < 10) listOf(0, n) else listOf((n/10), (n%10))
+//    var count: Int = 0
+//
+//    while (true) {
+//        count++
+//        val result = temp[0] + temp[1]
+//
+//        if((temp[1] * 10 + (result%10)) == n) {
+//            break
+//        }
+//
+//        temp = listOf(temp[1], (result%10))
+//    }
+//
+//    print(count)
+//}

@@ -1,4 +1,4 @@
-package `for`
+package backjoon.`while`
 
 import java.io.BufferedReader
 import java.io.BufferedWriter
@@ -10,41 +10,44 @@ import java.io.OutputStreamWriter
  * 두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램을 작성하시오.
  *
  * 입력
- * 첫째 줄에 테스트 케이스의 개수 T가 주어진다.
+ * 입력은 여러 개의 테스트 케이스로 이루어져 있다.
  * 각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 A와 B가 주어진다. (0 < A, B < 10)
+ * 입력의 마지막에는 0 두 개가 들어온다.
  *
  * 출력
- * 각 테스트 케이스마다 "Case #x: "를 출력한 다음, A+B를 출력한다.
- * 테스트 케이스 번호는 1부터 시작한다.
+ * 각 테스트 케이스마다 A+B를 출력한다.
  *
  * 제한
- * 없음.
+ * 없음
  *
  * 예제 입력
- * 5
  * 1 1
  * 2 3
  * 3 4
  * 9 8
  * 5 2
+ * 0 0
  *
  * 예제 출력
- * Case #1: 2
- * Case #2: 5
- * Case #3: 7
- * Case #4: 17
- * Case #5: 7
+ * 2
+ * 5
+ * 7
+ * 17
+ * 7
  */
 
-fun main(args: Array<String>) {
+fun main() = with(BufferedReader(InputStreamReader(System.`in`))) {
     val br = BufferedReader(InputStreamReader(System.`in`))
     val bw = BufferedWriter(OutputStreamWriter(System.out))
 
-    val t:Int = br.readLine().toInt()
-
-    for(i in 1..t ) {
+    while(true) {
         val (a:Int, b:Int) = br.readLine().split(" ").map { it.toInt() }
-        bw.write("Case #${i}: ${a+b}")
+
+        if(a == 0 && b== 0) {
+            break
+        }
+
+        bw.write("${a+b}")
         bw.newLine()
     }
 

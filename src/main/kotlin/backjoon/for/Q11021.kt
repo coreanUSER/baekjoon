@@ -1,4 +1,4 @@
-package `for`
+package backjoon.`for`
 
 import java.io.BufferedReader
 import java.io.BufferedWriter
@@ -14,7 +14,8 @@ import java.io.OutputStreamWriter
  * 각 테스트 케이스는 한 줄로 이루어져 있으며, 각 줄에 A와 B가 주어진다. (0 < A, B < 10)
  *
  * 출력
- * 각 테스트 케이스마다 "Case #x: A + B = C" 형식으로 출력한다. x는 테스트 케이스 번호이고 1부터 시작하며, C는 A+B이다.
+ * 각 테스트 케이스마다 "Case #x: "를 출력한 다음, A+B를 출력한다.
+ * 테스트 케이스 번호는 1부터 시작한다.
  *
  * 제한
  * 없음.
@@ -28,11 +29,11 @@ import java.io.OutputStreamWriter
  * 5 2
  *
  * 예제 출력
- * Case #1: 1 + 1 = 2
- * Case #2: 2 + 3 = 5
- * Case #3: 3 + 4 = 7
- * Case #4: 9 + 8 = 17
- * Case #5: 5 + 2 = 7
+ * Case #1: 2
+ * Case #2: 5
+ * Case #3: 7
+ * Case #4: 17
+ * Case #5: 7
  */
 
 fun main(args: Array<String>) {
@@ -43,7 +44,7 @@ fun main(args: Array<String>) {
 
     for(i in 1..t ) {
         val (a:Int, b:Int) = br.readLine().split(" ").map { it.toInt() }
-        bw.write("Case #${i}: ${a} + ${b} = ${a+b}")
+        bw.write("Case #${i}: ${a+b}")
         bw.newLine()
     }
 
