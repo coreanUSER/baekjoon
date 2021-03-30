@@ -58,37 +58,23 @@ fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
     val bw = BufferedWriter(OutputStreamWriter(System.out))
 
-    val m = 3
-    val p = "40 80 60"
+    val m: Int = br.readLine().toInt()
+    val points = br.readLine().split(" ").map { it.toInt() }
+    var maxPoint = 0.0
 
-    val points = p.split(" ").map { it.toInt() }
-
-//    val m: Int = br.readLine().toInt()
-//    val points = br.readLine().split(" ").map { it.toInt() }
-    var maxPoint = 0
-
-    val results = Array(m) { 0 }
-    var avg = 0.0
-
-    // 최대값 산출
+    var totalPoint = 0.0
     for(point in points) {
-        println("point : $point")
         if(point > maxPoint) {
-            maxPoint = point
+            maxPoint = point * 1.0
 
-            println("maxPoint : $maxPoint")
-            var sumResult = 0.0
-            for(point in points) {
-                sumResult += point/maxPoint*100.0
-                println(point/maxPoint*100.0)
+            totalPoint = 0.0
+            for(point2 in points) {
+                totalPoint += (point2/maxPoint*100)
             }
-            val avg = sumResult / m
-            println(avg)
         }
     }
 
-
-
+    bw.write("${totalPoint/m}")
     bw.flush()
     br.close()
     bw.close()
