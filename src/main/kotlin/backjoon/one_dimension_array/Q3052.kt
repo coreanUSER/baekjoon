@@ -65,23 +65,22 @@ import java.io.OutputStreamWriter
  */
 
 fun main() {
-    var br = BufferedReader(InputStreamReader(System.`in`))
-    var bw = BufferedWriter(OutputStreamWriter(System.out))
+    val br = BufferedReader(InputStreamReader(System.`in`))
+    val bw = BufferedWriter(OutputStreamWriter(System.out))
 
-    val results: ArrayList<Int> = ArrayList()
+    val results = Array(42) { 0 }
 
-    while (true) {
-        try {
-            val target:Int = br.readLine().toInt()
-            val result = target%42
-            if(!results.contains(result)) {
-                results.add(result)
-            }
-        } catch (e: Exception) {
-            break
+    var count = 0
+    for(i in 0 until 10) {
+        val result = br.readLine().toInt()
+        if(results[result%42] == 0) {
+            results[result%42]++
+            count++
         }
     }
 
-    bw.write(results.size)
+    bw.write(count.toString())
     bw.flush()
+    br.close()
+    bw.close()
 }
